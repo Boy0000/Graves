@@ -316,7 +316,12 @@ public class EntityDeathListener implements Listener {
 
                     grave.setKillerUUID(entityDamageByEntityEvent.getDamager().getUniqueId());
                     grave.setKillerType(entityDamageByEntityEvent.getDamager().getType());
-                    grave.setKillerName(plugin.getEntityManager().getEntityName(entityDamageByEntityEvent.getDamager()));
+                    if (plugin.getEntityManager().getEntityName(entityDamageByEntityEvent.getDamager()).contains("entity.mineinabyss.")) {
+                        grave.setKillerName(StringUtil.format(plugin.getEntityManager().getEntityName(entityDamageByEntityEvent
+                                .getDamager()).replace("entity.mineinabyss.", "")));
+                    } else {
+                        grave.setKillerName(plugin.getEntityManager().getEntityName(entityDamageByEntityEvent.getDamager()));
+                    }
                 } else {
                     grave.setKillerUUID(null);
                     grave.setKillerType(null);
