@@ -204,6 +204,14 @@ public final class GraveManager {
         plugin.getDataManager().updateGrave(grave, "protection", String.valueOf(grave.getProtection() ? 1 : 0));
     }
 
+    public void abandonGrave(Grave grave) {
+        grave.setAbandoned(true);
+        grave.setTimeProtection(0);
+        grave.setOwnerUUID(UUID.randomUUID()); // Since uuid cant be null, this seems like the best solution...
+        plugin.getDataManager().updateGrave(grave, "abandoned", String.valueOf(grave.isAbandoned() ? 1 : 0));
+
+    }
+
     public void graveParticle(Location location, Grave grave) {
         if (location.getWorld() != null && plugin.getConfig("particle.enabled", grave)
                 .getBoolean("particle.enabled")) {

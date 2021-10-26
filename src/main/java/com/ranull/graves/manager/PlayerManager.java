@@ -331,6 +331,14 @@ public final class PlayerManager {
 
                 break;
             }
+            case "abandoned": {
+                plugin.getGraveManager().abandonGrave(grave);
+                plugin.getPlayerManager().playPlayerSound("sound.abandoned", player, grave);
+                plugin.getPlayerManager().sendMessage("message.abandoned", player, player.getLocation(), grave);
+                player.closeInventory(); // Close Grave GUI
+
+                break;
+            }
             case "distance": {
                 Location location = plugin.getGraveManager().getGraveLocation(player.getLocation(), grave);
 

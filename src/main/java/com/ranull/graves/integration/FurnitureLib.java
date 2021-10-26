@@ -82,8 +82,8 @@ public final class FurnitureLib extends FurniturePlugin {
             if (project != null && project.haveModelSchematic()) {
                 ObjectID objectID = new ObjectID(project.getName(), project.getPlugin().getName(), location);
 
-                location.setYaw(furnitureLib.getLocationUtil().FaceToYaw(LocationUtil.yawToFace(grave.getYaw())
-                        .getOppositeFace()));
+//                location.setYaw(furnitureLib.getLocationUtil().FaceToYaw(LocationUtil.yawToFace(grave.getYaw())
+//                        .getOppositeFace()));
                 furnitureLib.spawn(project, objectID);
                 objectID.setUUID(UUID.randomUUID());
                 objectID.getBlockList().stream()

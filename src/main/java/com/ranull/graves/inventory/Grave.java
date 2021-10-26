@@ -26,6 +26,7 @@ public class Grave implements InventoryHolder {
     private Inventory inventory;
     private int experience;
     private boolean protection;
+    private boolean abandoned;
     private long timeAlive;
     private long timeCreation;
     private long timeProtection;
@@ -152,6 +153,12 @@ public class Grave implements InventoryHolder {
     public void setProtection(boolean protection) {
         this.protection = protection;
     }
+
+    public boolean isAbandoned() {
+        return abandoned;
+    }
+
+    public void setAbandoned(boolean abandoned) { this.abandoned = abandoned; }
 
     public long getTimeAlive() {
         return timeAlive;

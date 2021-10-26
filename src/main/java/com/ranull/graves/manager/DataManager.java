@@ -177,6 +177,7 @@ public final class DataManager {
                 "inventory TEXT,\n" +
                 "experience INT(16),\n" +
                 "protection INT(1),\n" +
+                "abandoned INT(0),\n" +
                 "time_alive INT(16),\n" +
                 "time_protection INT(11),\n" +
                 "time_creation INT(11),\n" +
@@ -238,6 +239,10 @@ public final class DataManager {
 
         if (!columnList.contains("protection")) {
             executeUpdate("ALTER TABLE " + name + " ADD COLUMN protection INT(1);");
+        }
+
+        if (!columnList.contains("abandoned")) {
+            executeUpdate("ALTER TABLE " + name + " ADD COLUMN abandoned INT(0);");
         }
 
         if (!columnList.contains("time_alive")) {
@@ -630,6 +635,7 @@ public final class DataManager {
         String permissions = grave.getPermissionList() != null && !grave.getPermissionList().isEmpty()
                 ? "'" + StringUtils.join(grave.getPermissionList(), "|") + "'" : "NULL";
         int protection = grave.getProtection() ? 1 : 0;
+        int abandoned = grave.isAbandoned() ? 1 : 0;
         int experience = grave.getExperience();
         long timeAlive = grave.getTimeAlive();
         long timeProtection = grave.getTimeProtection();
@@ -640,7 +646,7 @@ public final class DataManager {
                     + " killer_uuid, location_death, yaw, pitch, inventory, experience, protection, time_alive, time_protection,"
                     + " time_creation, permissions) VALUES (" + uuid + ", " + ownerType + ", "
                     + ownerName + ", " + ownerUUID + ", " + ownerTexture + ", " + killerType + ", " + killerName + ", " + killerUUID
-                    + ", " + locationDeath + ", " + yaw + ", " + pitch + ", " + inventory + ", " + experience + ", " + protection + ", "
+                    + ", " + locationDeath + ", " + yaw + ", " + pitch + ", " + inventory + ", " + experience + ", " + protection + ", " + abandoned + ", "
                     + timeAlive + ", " + timeProtection + ", " + timeCreation + ", " + permissions + ");");
         });
     }
@@ -684,6 +690,7 @@ public final class DataManager {
             grave.setPitch(resultSet.getFloat("pitch"));
             grave.setExperience(resultSet.getInt("experience"));
             grave.setProtection(resultSet.getInt("protection") == 1);
+            grave.setAbandoned(resultSet.getInt("abandoned") == 1);
             grave.setTimeAlive(resultSet.getLong("time_alive"));
             grave.setTimeProtection(resultSet.getLong("time_protection"));
             grave.setTimeCreation(resultSet.getLong("time_creation"));
