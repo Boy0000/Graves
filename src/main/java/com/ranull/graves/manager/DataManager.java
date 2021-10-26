@@ -643,7 +643,7 @@ public final class DataManager {
 
         plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             executeUpdate("INSERT INTO grave (uuid, owner_type, owner_name, owner_uuid, owner_texture, killer_type, killer_name,"
-                    + " killer_uuid, location_death, yaw, pitch, inventory, experience, protection, time_alive, time_protection,"
+                    + " killer_uuid, location_death, yaw, pitch, inventory, experience, protection, abandoned, time_alive, time_protection,"
                     + " time_creation, permissions) VALUES (" + uuid + ", " + ownerType + ", "
                     + ownerName + ", " + ownerUUID + ", " + ownerTexture + ", " + killerType + ", " + killerName + ", " + killerUUID
                     + ", " + locationDeath + ", " + yaw + ", " + pitch + ", " + inventory + ", " + experience + ", " + protection + ", " + abandoned + ", "

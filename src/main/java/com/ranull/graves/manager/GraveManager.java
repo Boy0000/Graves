@@ -208,6 +208,7 @@ public final class GraveManager {
         grave.setAbandoned(true);
         grave.setTimeProtection(0);
         grave.setOwnerUUID(UUID.randomUUID()); // Since uuid cant be null, this seems like the best solution...
+        plugin.getDataManager().updateGrave(grave, "owner_uuid", String.valueOf(grave.getOwnerUUID()));
         plugin.getDataManager().updateGrave(grave, "abandoned", String.valueOf(grave.isAbandoned() ? 1 : 0));
 
     }

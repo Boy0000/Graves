@@ -635,7 +635,7 @@ settings:
         menu-open: ENTITY_CHICKEN_EGG
         protection: BLOCK_CHEST_LOCKED
         protection-change: ENTITY_DONKEY_CHEST
-        abandoned: ENTITY_LLAMA_DEATH
+        abandoned: ENTITY_ZOMBIE_BREAK_WOODEN_DOOR
 
       ##########
       # Effect #
