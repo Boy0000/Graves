@@ -325,7 +325,7 @@ public class EntityDeathListener implements Listener {
                 } else {
                     grave.setKillerUUID(null);
                     grave.setKillerType(null);
-                    grave.setKillerName(plugin.getGraveManager().getDamageCause(entityDamageEvent.getCause(), grave));
+                    grave.setKillerName("Falling"); // Custom might be more than falldamage, but since BoneHurt
                 }
             }
 
