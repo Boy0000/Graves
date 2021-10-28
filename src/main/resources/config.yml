@@ -581,6 +581,7 @@ settings:
         distance-virtual: "You are too far away to virtually open this grave."
         permission-denied: "Permission denied."
         protection: "This grave is protected for %time_protection_remaining_formatted%."
+        abandoned: "You abandoned your grave."
         region-create-deny: "A grave was not created because grave creation is disabled in this region."
         region-teleport-deny: "Grave teleportation is disabled in this region."
         death-reason: # https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/entity/EntityDamageEvent.DamageCause.html
@@ -634,6 +635,7 @@ settings:
         menu-open: ENTITY_CHICKEN_EGG
         protection: BLOCK_CHEST_LOCKED
         protection-change: ENTITY_DONKEY_CHEST
+        abandoned: ENTITY_ZOMBIE_BREAK_WOODEN_DOOR
 
       ##########
       # Effect #
